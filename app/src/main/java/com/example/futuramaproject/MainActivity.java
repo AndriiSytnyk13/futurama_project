@@ -25,14 +25,11 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         futuramaThemeSong = MediaPlayer.create(MainActivity.this, R.raw.futurama_theme_song);
+        futuramaThemeSong.setLooping(true);
         futuramaThemeSong.start();
     }
 
-    public MediaPlayer getFuturamaThemeSong() {
-        return futuramaThemeSong;
-    }
-
-    public void onQuit(View view){
+    public void onQuit(View view) {
         finish();
         System.exit(0);
     }

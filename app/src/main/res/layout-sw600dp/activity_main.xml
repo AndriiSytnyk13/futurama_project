@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/futurama"
-        android:layout_width="247dp"
-        android:layout_height="160dp"
+        android:layout_width="640dp"
+        android:layout_height="358dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -18,8 +18,9 @@
 
     <Button
         android:id="@+id/startGame"
-        android:layout_width="164dp"
-        android:layout_height="53dp"
+        android:layout_width="328dp"
+        android:layout_height="106dp"
+        android:textSize="40sp"
         android:layout_marginTop="32dp"
         android:backgroundTint="@color/red"
         android:text="@string/start_game"
@@ -31,8 +32,9 @@
 
     <Button
         android:id="@+id/library"
-        android:layout_width="164dp"
-        android:layout_height="53dp"
+        android:layout_width="328dp"
+        android:layout_height="106dp"
+        android:textSize="40sp"
         android:layout_marginTop="32dp"
         android:backgroundTint="@color/red"
         android:text="@string/library"
@@ -44,8 +46,9 @@
 
     <Button
         android:id="@+id/settings"
-        android:layout_width="164dp"
-        android:layout_height="53dp"
+        android:layout_width="328dp"
+        android:layout_height="106dp"
+        android:textSize="40sp"
         android:layout_marginTop="32dp"
         android:backgroundTint="@color/red"
         android:text="@string/settings"
@@ -57,8 +60,9 @@
 
     <Button
         android:id="@+id/about"
-        android:layout_width="164dp"
-        android:layout_height="53dp"
+        android:layout_width="328dp"
+        android:layout_height="106dp"
+        android:textSize="40sp"
         android:layout_marginTop="32dp"
         android:backgroundTint="@color/red"
         android:text="@string/about"
@@ -70,8 +74,9 @@
 
     <Button
         android:id="@+id/quit"
-        android:layout_width="164dp"
-        android:layout_height="53dp"
+        android:layout_width="328dp"
+        android:layout_height="106dp"
+        android:textSize="40sp"
         android:layout_marginTop="32dp"
         android:backgroundTint="@color/red"
         android:onClick="onQuit"
