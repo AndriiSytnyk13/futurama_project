@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Futurama Project</string>
+
+    <!-- Main Menu -->
+    <string name="start_game">Start Game</string>
+    <string name="library">Library</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+    <string name="quit">Quit</string>
+</resources>
