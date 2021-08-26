@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/futurama_background"
     tools:context=".MainActivity">
-
     <ImageView
         android:id="@+id/futurama"
         android:layout_width="247dp"
