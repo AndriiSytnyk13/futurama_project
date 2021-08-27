@@ -1,6 +1,7 @@
 package com.example.futuramaproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Lifecycle;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
