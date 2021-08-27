@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //creating a background music
         futuramaThemeSong = MediaPlayer.create(this, R.raw.futurama_theme_song);
         futuramaThemeSong.setLooping(true);
         futuramaThemeSong.start();

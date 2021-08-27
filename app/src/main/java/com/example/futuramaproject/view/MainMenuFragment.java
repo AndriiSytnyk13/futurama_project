@@ -1,5 +1,7 @@
 package com.example.futuramaproject.view;
 
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
@@ -23,13 +25,14 @@ import butterknife.ButterKnife;
 
 public class MainMenuFragment extends Fragment {
 
-
-
-    @BindView(R.id.quit)
-    Button quitButton;
+    @BindView(R.id.settings)
+    Button settingsButton;
 
     @BindView(R.id.about)
     Button aboutButton;
+
+    @BindView(R.id.quit)
+    Button quitButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,11 +46,22 @@ public class MainMenuFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        onSettingsClick();
         onAboutClick();
         onQuitClick();
     }
 
-    private void onAboutClick(){
+    private void onSettingsClick() {
+        settingsButton.setOnClickListener(view -> {
+            Dialog dialog = new Dialog(getContext());
+            dialog.setContentView(R.layout.settings_dialog);
+            dialog.show();
+        });
+    }
+
+
+
+    private void onAboutClick() {
         aboutButton.setOnClickListener(view ->
                 Navigation.findNavController(view).navigate(R.id.action_mainMenuFragment_to_aboutFragment));
     }

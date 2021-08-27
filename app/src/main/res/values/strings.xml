@@ -10,6 +10,17 @@
 
     <string name="hello_blank_fragment">Hello blank</string>
 
+    <!-- Settings Menu -->
+    <string name="brightness">Brightness</string>
+    <string name="sound">Sound</string>
+    <string name="volume">Volume</string>
+    <string name="language">Language</string>
+    <string-array name="languages">
+        <item>English</item>
+        <item>Українська</item>
+        <item>Русский</item>
+    </string-array>
+
     <!-- About Menu -->
     <string name="about_some_text">Amy normally hated Monday mornings, but this year was different. Kamal was in her art class and she liked Kamal. She was waiting outside the classroom when her friend Tara arrived.
 
