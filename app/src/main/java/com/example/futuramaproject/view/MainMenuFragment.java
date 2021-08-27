@@ -6,7 +6,11 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.OnLifecycleEvent;
+import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,8 +26,10 @@ public class MainMenuFragment extends Fragment {
     private MediaPlayer futuramaThemeSong;
 
     @BindView(R.id.quit)
-    Button quit;
+    Button quitButton;
 
+    @BindView(R.id.about)
+    Button aboutButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,15 +46,19 @@ public class MainMenuFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        onQuit();
-
+        onAboutClick();
+        onQuitClick();
     }
 
-    private void onQuit() {
-        quit.setOnClickListener(view1 -> {
+    private void onAboutClick(){
+        aboutButton.setOnClickListener(view ->
+                Navigation.findNavController(view).navigate(R.id.action_mainMenuFragment_to_aboutFragment));
+    }
+
+    private void onQuitClick() {
+        quitButton.setOnClickListener(view -> {
             getActivity().finish();
             System.exit(0);
         });
-
     }
 }
