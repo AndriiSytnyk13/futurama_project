@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="360dp"
-    android:layout_height="400dp"
-    android:background="@color/red"
+    android:layout_height="300dp"
+    android:background="@drawable/background_menu"
     android:columnCount="2"
     android:rowCount="4"
     android:layout_gravity="center">
@@ -16,6 +16,7 @@
         android:layout_row="0"
         android:layout_column="0"
         android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
         android:text="@string/brightness"
         android:textColor="@color/yellow"
         android:textSize="18sp"
@@ -42,7 +43,8 @@
         android:layout_height="wrap_content"
         android:layout_row="1"
         android:layout_column="0"
-        android:layout_gravity="center_vertical"/>
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"/>
 
     <Switch
         android:id="@+id/soundSwitch"
@@ -63,7 +65,8 @@
         android:text="@string/volume"
         android:textColor="@color/yellow"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"/>
 
     <SeekBar
         android:id="@+id/volumeBar"
@@ -87,7 +90,8 @@
         android:layout_height="wrap_content"
         android:layout_row="3"
         android:layout_column="0"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"/>
 
     <Spinner
         android:id="@+id/languageSpinner"
