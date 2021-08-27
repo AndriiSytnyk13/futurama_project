@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 
 public class MainMenuFragment extends Fragment {
 
-    private MediaPlayer futuramaThemeSong;
+
 
     @BindView(R.id.quit)
     Button quitButton;
@@ -37,9 +37,6 @@ public class MainMenuFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_main_menu, container, false);
         ButterKnife.bind(this, view);
-        futuramaThemeSong = MediaPlayer.create(getContext(), R.raw.futurama_theme_song);
-        futuramaThemeSong.setLooping(true);
-        futuramaThemeSong.start();
         return view;
     }
 
