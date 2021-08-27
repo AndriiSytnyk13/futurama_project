@@ -58,9 +58,7 @@ public class MainMenuFragment extends Fragment {
             dialog.show();
         });
     }
-
-
-
+    
     private void onAboutClick() {
         aboutButton.setOnClickListener(view ->
                 Navigation.findNavController(view).navigate(R.id.action_mainMenuFragment_to_aboutFragment));
