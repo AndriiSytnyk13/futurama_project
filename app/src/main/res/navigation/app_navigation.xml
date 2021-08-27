@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/mainMenuFragment">
+
+    <fragment
+        android:id="@+id/mainMenuFragment"
+        android:name="com.example.futuramaproject.view.MainMenuFragment"
+        android:label="MainMenuFragment" >
+        <action
+            android:id="@+id/action_mainMenuFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_libraryListFragment"
+            app:destination="@id/libraryListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.futuramaproject.view.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" >
+        <action
+            android:id="@+id/action_aboutFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/libraryDetailFragment"
+        android:name="com.example.futuramaproject.view.LibraryDetailFragment"
+        android:label="fragment_library_detail"
+        tools:layout="@layout/fragment_library_detail" >
+        <action
+            android:id="@+id/action_libraryDetailFragment_to_libraryListFragment"
+            app:destination="@id/libraryListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/libraryListFragment"
+        android:name="com.example.futuramaproject.view.LibraryListFragment"
+        android:label="fragment_library_list"
+        tools:layout="@layout/fragment_library_list" >
+        <action
+            android:id="@+id/action_libraryListFragment_to_libraryDetailFragment"
+            app:destination="@id/libraryDetailFragment" />
+        <action
+            android:id="@+id/action_libraryListFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment" />
+    </fragment>
+</navigation>
