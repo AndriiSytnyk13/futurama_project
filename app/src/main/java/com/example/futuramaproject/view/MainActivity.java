@@ -1,5 +1,6 @@
 package com.example.futuramaproject.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.Navigation;
 

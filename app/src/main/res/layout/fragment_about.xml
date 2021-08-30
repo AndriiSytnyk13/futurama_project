@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:id="@+id/fragment_about"
     android:background="@drawable/futurama_background"
-    tools:context=".view.AboutFragment">
+    tools:context=".view.AboutFragment"
+    tools:viewBindingIgnore="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

@@ -53,9 +53,8 @@ public class MainMenuFragment extends Fragment {
 
     private void onSettingsClick() {
         settingsButton.setOnClickListener(view -> {
-            Dialog dialog = new Dialog(getContext());
-            dialog.setContentView(R.layout.settings_dialog);
-            dialog.show();
+            SettingsDialog settingsDialog = new SettingsDialog(getContext());
+            settingsDialog.show();
         });
     }
     
