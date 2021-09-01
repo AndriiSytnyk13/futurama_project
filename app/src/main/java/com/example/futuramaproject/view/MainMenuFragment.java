@@ -8,6 +8,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.navigation.Navigation;
@@ -34,6 +36,8 @@ public class MainMenuFragment extends Fragment {
     @BindView(R.id.quit)
     Button quitButton;
 
+    private FragmentActivity myContext;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -55,6 +59,7 @@ public class MainMenuFragment extends Fragment {
         settingsButton.setOnClickListener(view -> {
             SettingsDialog settingsDialog = new SettingsDialog(getContext());
             settingsDialog.show();
+
         });
     }
     
@@ -66,7 +71,6 @@ public class MainMenuFragment extends Fragment {
     private void onQuitClick() {
         quitButton.setOnClickListener(view -> {
             getActivity().finish();
-            System.exit(0);
         });
     }
 }

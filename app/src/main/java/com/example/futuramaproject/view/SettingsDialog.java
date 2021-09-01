@@ -1,31 +1,28 @@
 package com.example.futuramaproject.view;
 
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.SeekBar;
-import android.widget.Spinner;
-import android.widget.Switch;
 
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 
 
-import com.example.futuramaproject.R;
 import com.example.futuramaproject.databinding.SettingsDialogBinding;
 
 
 public class SettingsDialog extends Dialog {
 
     private SettingsDialogBinding binding;
+    private SharedPreferences preferences;
+    private int brightness;
+    private final String brightnessTag = "Brightness";
 
 
     public SettingsDialog(@NonNull Context context) {
@@ -35,17 +32,38 @@ public class SettingsDialog extends Dialog {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         binding = SettingsDialogBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
         askPermission(getContext());
-        changeBrightness();
+
+        saveChanges();
+        onBackClick();
+
+        showCurrentState();
     }
 
-    @Override
-    public void onPanelClosed(int featureId, @NonNull Menu menu) {
-        super.onPanelClosed(featureId, menu);
+
+    private void onBackClick() {
+        binding.backButton.setOnClickListener(view -> {
+            dismiss();
+        });
     }
+
+    private void saveChanges(){
+        preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt(brightnessTag, changeBrightness());
+        editor.apply();
+    }
+
+    private void showCurrentState() {
+        preferences.getInt(brightnessTag, 50);
+    }
+
+
 
     //asks permission to adjust brightness
     private void askPermission(Context c){
@@ -59,12 +77,24 @@ public class SettingsDialog extends Dialog {
     }
 
 
-    private void changeBrightness() {
+    private int changeBrightness() {
+        binding.brightnessBar.setMax(100);
+        binding.brightnessBar.setKeyProgressIncrement(1);
+
+        try {
+            brightness = Settings.System.getInt(getContext().getContentResolver(),
+                    Settings.System.SCREEN_BRIGHTNESS);
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+        binding.brightnessBar.setProgress(brightness);
+
         binding.brightnessBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                Settings.System.putInt(getContext().getContentResolver(), Settings.System.SCREEN_BRIGHTNESS
-                        , i);
+                brightness = i;
             }
 
             @Override
@@ -73,8 +103,10 @@ public class SettingsDialog extends Dialog {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                Settings.System.putInt(getContext().getContentResolver(), Settings.System.SCREEN_BRIGHTNESS
+                        , brightness);
             }
         });
+        return brightness;
     }
 }
