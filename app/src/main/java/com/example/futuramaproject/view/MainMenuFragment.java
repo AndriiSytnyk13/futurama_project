@@ -1,26 +1,22 @@
 package com.example.futuramaproject.view;
 
-import android.app.Dialog;
-import android.app.DialogFragment;
-import android.media.MediaPlayer;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.OnLifecycleEvent;
 import androidx.navigation.Navigation;
 
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.futuramaproject.R;
+import com.example.futuramaproject.service.FuturamaService;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -57,8 +53,8 @@ public class MainMenuFragment extends Fragment {
 
     private void onSettingsClick() {
         settingsButton.setOnClickListener(view -> {
-            SettingsDialog settingsDialog = new SettingsDialog(getContext());
-            settingsDialog.show();
+            SettingsDialog settingsDialog = new SettingsDialog();
+            settingsDialog.show(getChildFragmentManager(), "SettingsDialog");
 
         });
     }
@@ -70,7 +66,9 @@ public class MainMenuFragment extends Fragment {
 
     private void onQuitClick() {
         quitButton.setOnClickListener(view -> {
+            getActivity().stopService(new Intent(getContext(), FuturamaService.class));
             getActivity().finish();
         });
     }
+
 }

@@ -55,7 +55,8 @@
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:outlineSpotShadowColor="@color/yellow"
-        android:scrollbarSize="18sp" />
+        android:scrollbarSize="18sp"
+        android:checked="true"/>
 
     <TextView
         android:id="@+id/volume"
